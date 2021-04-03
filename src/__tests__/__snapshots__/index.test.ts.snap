@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageCenter test clear 1`] = `
+Object {
+  "kkk": Array [
+    [Function],
+  ],
+  "kkk2": Array [
+    [Function],
+  ],
+  "kkk3": Array [
+    [Function],
+  ],
+  "kkk4": Array [
+    [Function],
+  ],
+}
+`;

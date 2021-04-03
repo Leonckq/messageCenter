@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "variable-name": false,
+    "quotemark": [true, "single", "jsx-double"],
+    "arrow-parens": false,
+    "ban-types": false,
+    "no-console": false,
+    "interface-name": false,
+    "only-arrow-functions": false,
+    "member-ordering": false,
+    "object-literal-sort-keys": false,
+    "interface-over-type-literal": false,
+    "object-literal-key-quotes": false,
+    "trailing-comma": false,
+    "member-access": false
+  }
+}

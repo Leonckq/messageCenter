@@ -1,0 +1,66 @@
+{
+  "name": "@ekuaibao/messagecenter",
+  "version": "5.2.999999999",
+  "description": "Message Center",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./esm/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.ekuaibao.com/"
+  },
+  "scripts": {
+    "build": "npm run tsc:build && npm run optimize && npm run cp",
+    "cp": "cp package.json README.md .npmignore dist",
+    "tsc:build": "rm -fr dist && tsc -p tsconfig.esm.json && cp -R dist/esm dist/lib",
+    "optimize": "npm run babel:cjs & npm run babel:mjs",
+    "babel:cjs": "babel dist/lib --out-dir dist/lib --plugins=@babel/plugin-transform-modules-commonjs,babel-plugin-add-module-exports",
+    "babel:mjs": "babel dist/esm --out-dir dist/esm",
+    "start": "jest -o --watch",
+    "publish2npm": "npm run build && npm publish dist",
+    "prepush": "npm run lint",
+    "test": "jest --coverage",
+    "codecov": "codecov",
+    "lint": "tslint 'src/**/*.ts' && npm test"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@types/jest": "^24.0.6",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "codecov": "^3.2.0",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.test.{ts,tsx,js,jsx}"
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "ts-jest"
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/",
+      "/dist/"
+    ]
+  },
+  "keywords": [
+    "bus",
+    "messagecenter"
+  ],
+  "author": "nanyauntingfeng"
+}
